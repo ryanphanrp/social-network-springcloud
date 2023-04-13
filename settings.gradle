@@ -1,0 +1,6 @@
+rootProject.name = 'social-network'
+include 'core'
+include 'newsfeed'
+include 'user'
+include 'discovery'
+include 'gateway'
