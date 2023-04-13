@@ -1,5 +1,13 @@
 # Learning Spring Boot 3 and Spring cloud
 
+## Description
+I am learning Spring boot and Spring Cloud.
+So I try to build a social network like Instagram with tech taht I learned.
+
+## Tech
+- Spring boot 7
+- Java 17
+- Docker
 
 ## Service list
 | Service   | Port |
