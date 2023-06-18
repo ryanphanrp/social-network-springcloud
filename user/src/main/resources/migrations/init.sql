@@ -6,7 +6,7 @@ create table if not exists users(
 );
 
 alter table users
-add column status ENUM('ACTIVE', 'NOT_VERIFIED', 'DEACTIVATED');
+add column status ENUM('ACTIVE', 'NOT_VERIFIED', 'DEACTIVATED') default 'NOT_VERIFIED';
 
 
 # 2023.04.04
