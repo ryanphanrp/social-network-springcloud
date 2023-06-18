@@ -2,7 +2,6 @@ package com.ryan.application.dto;
 
 import com.ryan.constant.ResponseCode;
 import com.ryan.domain.entity.User;
-import com.ryan.domain.constant.UserStatus;
 import com.ryan.exception.GlobalAppException;
 import com.ryan.infrastructure.UsernameValidator;
 
@@ -16,7 +15,6 @@ public record UserCreateDto(String username, String email) {
                 .withUsername(username)
                 .withEmail(email)
                 .withPassword(generatePassword())
-                .withStatus(UserStatus.ofDefault())
                 .build();
     }
 }

@@ -24,8 +24,8 @@ public class UserService {
   }
 
   public Long createUser(UserCreateDto dto) {
-    User user = dto.toEntity();
-    return userDao.save(user).getUserId();
+    User user = userDao.save(dto.toEntity());
+    return user.getUserId();
   }
 
   public List<UserDetailDto> getUsers() {

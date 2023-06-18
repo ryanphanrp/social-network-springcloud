@@ -1,17 +1,8 @@
 package com.ryan.domain.entity;
 
 import com.ryan.domain.constant.UserStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
@@ -22,16 +13,19 @@ import lombok.Setter;
 @Table(name = "users")
 public class User {
 
-  @Id
-  @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long userId;
+    @Id
+    @GeneratedValue
+    private Long userId;
 
-  @Column(nullable = false, unique = true)
-  private String username;
+    @Column(nullable = false, unique = true)
+    private String username;
 
-  private UserStatus status;
-  @Column(unique = true)
-  private String email;
-  private String password;
+    @Builder.Default
+    @Enumerated(EnumType.STRING)
+    private UserStatus status = UserStatus.ofDefault();
+
+    @Column(unique = true)
+    private String email;
+    private String password;
 }
 
