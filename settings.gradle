@@ -4,3 +4,5 @@ include 'newsfeed'
 include 'user'
 include 'discovery'
 include 'gateway'
+include 'media'
+
