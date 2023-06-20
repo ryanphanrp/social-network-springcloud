@@ -1,0 +1,19 @@
+server:
+  port: 8090
+eureka:
+  client:
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+spring:
+  minio:
+    endpoint: http://localhost:9000
+    bucketName: avatar
+    accessKey: tinhtute
+    secretKey: vodichtoanvutru
+application:
+  buckets:
+    - avatar
+    - post
