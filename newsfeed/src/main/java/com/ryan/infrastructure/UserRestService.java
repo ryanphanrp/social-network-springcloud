@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @FeignClient(name = "user",  url = "${service.feign.uri}", configuration = FeignConfiguration.class)
 public interface UserRestService {
-    @GetMapping(value = "/internal/user/{username}", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    @GetMapping(value = "/internal/users/{username}", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     UserDetailDto getUser(@PathVariable String username);
 }
