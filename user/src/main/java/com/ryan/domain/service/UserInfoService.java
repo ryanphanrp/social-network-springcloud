@@ -6,7 +6,7 @@ import com.ryan.domain.dao.UserDetailDao;
 import com.ryan.domain.dao.UserInfoDao;
 import com.ryan.domain.entity.UserInfo;
 import com.ryan.domain.entity.pojo.UserDetail;
-import com.ryan.exception.GlobalAppException;
+import com.ryan.exception.SocialMonoException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class UserInfoService {
   public Long createUserInfo(String username, UserInfoCreateDto dto) {
     // TODO: need to validate by Spring Security
       if (!userService.validateUserId(username, dto.userId())) {
-          throw new GlobalAppException(ResponseCode.FORBIDDEN);
+          throw new SocialMonoException(ResponseCode.FORBIDDEN);
       }
     UserInfo userInfo = dto.toEntity();
     return userInfoDao.save(userInfo).getUserInfoId();
@@ -29,6 +29,6 @@ public class UserInfoService {
 
   public UserDetail getUserInfoDetail(String username) {
     return userDetailDao.findUserInfoByUsername(username)
-        .orElseThrow(() -> new GlobalAppException(ResponseCode.NOT_FOUND));
+        .orElseThrow(() -> new SocialMonoException(ResponseCode.NOT_FOUND));
   }
 }

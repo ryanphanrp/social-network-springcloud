@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("io.minio:minio:8.5.2")
+    implementation 'com.amazonaws:aws-java-sdk:1.12.497'
 
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'

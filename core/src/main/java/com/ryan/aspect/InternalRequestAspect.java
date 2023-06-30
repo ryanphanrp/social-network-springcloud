@@ -1,7 +1,7 @@
 package com.ryan.aspect;
 
 import com.ryan.constant.ResponseCode;
-import com.ryan.exception.GlobalAppException;
+import com.ryan.exception.SocialMonoException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
@@ -31,7 +31,7 @@ public class InternalRequestAspect {
         }
         HttpServletRequest request = attributes.getRequest();
         String token = request.getHeader(HEADER_TOKEN);
-        if (!validateHeaderToken(token)) throw new GlobalAppException(ResponseCode.FORBIDDEN);
+        if (!validateHeaderToken(token)) throw new SocialMonoException(ResponseCode.FORBIDDEN);
         log.info("Token: {}", token);
     }
 

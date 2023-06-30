@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @Slf4j
 @RestControllerAdvice
-public class GlobalAppExceptionHandler {
+public class GlobalExceptionHandler {
 
-    @ExceptionHandler({GlobalAppException.class})
+    @ExceptionHandler({SocialMonoException.class})
     @ResponseStatus(HttpStatus.GONE)
     @ResponseBody
-    public ResponseDto<Object> globalAppHandler(HttpServletRequest req, GlobalAppException exp) {
+    public ResponseDto<Object> globalAppHandler(HttpServletRequest req, SocialMonoException exp) {
         log.error("[GlobalAppException]: {} - {}", req.getRequestURI(), exp.getMessage());
         return ResponseDto.error(exp.getResponseCode());
     }
